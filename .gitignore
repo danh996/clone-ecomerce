@@ -8,6 +8,7 @@
 .#*
 .*.md.html
 .DS_Store
+.idea
 .attach_pid*
 .classpath
 .factorypath

@@ -19,4 +19,10 @@ public class UserService {
     public void saveUser(User user) {
         userRepository.save(user);
     }
+
+    public boolean isEmailUnique(String email) {
+        User userByEmail = userRepository.getUserByEmail(email);
+
+        return userByEmail == null;
+    }
 }

@@ -26,6 +26,16 @@ public class User {
     @Column(length = 64)
     private String photos;
 
+    private boolean enabled;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
@@ -102,5 +112,13 @@ public class User {
                 ", photos='" + photos + '\'' +
                 ", roles=" + roles +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

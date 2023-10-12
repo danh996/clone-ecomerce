@@ -6,6 +6,9 @@ import danh.com.Clone.Ecomerce.exception.UserNotFoundException;
 import danh.com.Clone.Ecomerce.repository.RoleRepository;
 import danh.com.Clone.Ecomerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,12 +16,19 @@ import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
+    public static final int USERS_PER_PAGE = 4;
+
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepo;
-    public List<User> listAll(){
+    public List<User> listAll() {
         return (List<User>) userRepository.findAll();
+    }
+
+    public Page<User> listByPage(int pageNum) {
+        Pageable pageable = PageRequest.of(pageNum - 1, USERS_PER_PAGE);
+        return userRepository.findAll(pageable);
     }
 
     public void saveUser(User user) {
@@ -50,5 +60,9 @@ public class UserService {
         }
 
         userRepository.deleteById(id);
+    }
+
+    public void updateUserEnabledStatus(Integer id, boolean enabled) {
+        userRepository.updateEnabledStatus(id, enabled);
     }
 }

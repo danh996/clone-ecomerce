@@ -3,6 +3,7 @@ package danh.com.Clone.Ecomerce.service;
 import danh.com.Clone.Ecomerce.entity.Role;
 import danh.com.Clone.Ecomerce.entity.User;
 import danh.com.Clone.Ecomerce.exception.UserNotFoundException;
+import danh.com.Clone.Ecomerce.repository.CategoryRepository;
 import danh.com.Clone.Ecomerce.repository.RoleRepository;
 import danh.com.Clone.Ecomerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class UserService {
     public static final int USERS_PER_PAGE = 4;
 
     @Autowired
-    private UserRepository userRepository;
+    private CategoryRepository categoryRepository;
     @Autowired
     private RoleRepository roleRepo;
     public List<User> listAll() {

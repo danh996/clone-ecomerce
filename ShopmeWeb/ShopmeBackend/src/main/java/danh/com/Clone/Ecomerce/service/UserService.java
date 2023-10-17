@@ -1,12 +1,11 @@
 package danh.com.Clone.Ecomerce.service;
 
 
-import danh.com.Clone.Ecomerce.entity.Role;
-import danh.com.Clone.Ecomerce.entity.User;
 import danh.com.Clone.Ecomerce.exception.UserNotFoundException;
 import danh.com.Clone.Ecomerce.repository.RoleRepository;
 import danh.com.Clone.Ecomerce.repository.UserRepository;
-import jakarta.transaction.Transactional;
+import danh.com.common.entity.Role;
+import danh.com.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
